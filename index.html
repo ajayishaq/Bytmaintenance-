@@ -12,7 +12,7 @@
     }
     
     body {
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      background: #000000;
       color: #ffffff;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif;
       display: flex;
@@ -23,7 +23,7 @@
       position: relative;
     }
     
-    /* Floating particles background */
+    /* Falling rain effect */
     .particles {
       position: absolute;
       width: 100%;
@@ -34,37 +34,47 @@
     
     .particle {
       position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(100, 200, 255, 0.3);
+      width: 2px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4), transparent);
       border-radius: 50%;
-      animation: float 20s infinite;
+      animation: fall linear infinite;
     }
     
-    .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
-    .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
-    .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 22s; }
-    .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 20s; }
-    .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 17s; }
-    .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 19s; }
-    .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 21s; }
-    .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 16s; }
-    .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 23s; }
-    .particle:nth-child(10) { left: 15%; animation-delay: 3.5s; animation-duration: 18s; }
+    .particle:nth-child(1) { left: 5%; animation-duration: 2s; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 15%; animation-duration: 2.5s; animation-delay: 0.3s; }
+    .particle:nth-child(3) { left: 25%; animation-duration: 2.2s; animation-delay: 0.7s; }
+    .particle:nth-child(4) { left: 35%; animation-duration: 2.8s; animation-delay: 0.2s; }
+    .particle:nth-child(5) { left: 45%; animation-duration: 2.3s; animation-delay: 0.5s; }
+    .particle:nth-child(6) { left: 55%; animation-duration: 2.6s; animation-delay: 0.1s; }
+    .particle:nth-child(7) { left: 65%; animation-duration: 2.4s; animation-delay: 0.8s; }
+    .particle:nth-child(8) { left: 75%; animation-duration: 2.7s; animation-delay: 0.4s; }
+    .particle:nth-child(9) { left: 85%; animation-duration: 2.1s; animation-delay: 0.6s; }
+    .particle:nth-child(10) { left: 95%; animation-duration: 2.9s; animation-delay: 0.9s; }
+    .particle:nth-child(11) { left: 10%; animation-duration: 2.5s; animation-delay: 1s; }
+    .particle:nth-child(12) { left: 20%; animation-duration: 2.3s; animation-delay: 1.2s; }
+    .particle:nth-child(13) { left: 30%; animation-duration: 2.7s; animation-delay: 0.3s; }
+    .particle:nth-child(14) { left: 40%; animation-duration: 2.2s; animation-delay: 0.9s; }
+    .particle:nth-child(15) { left: 50%; animation-duration: 2.6s; animation-delay: 0.5s; }
+    .particle:nth-child(16) { left: 60%; animation-duration: 2.4s; animation-delay: 1.1s; }
+    .particle:nth-child(17) { left: 70%; animation-duration: 2.8s; animation-delay: 0.7s; }
+    .particle:nth-child(18) { left: 80%; animation-duration: 2.1s; animation-delay: 0.4s; }
+    .particle:nth-child(19) { left: 90%; animation-duration: 2.9s; animation-delay: 0.2s; }
+    .particle:nth-child(20) { left: 12%; animation-duration: 2.5s; animation-delay: 0.8s; }
     
-    @keyframes float {
+    @keyframes fall {
       0% {
-        transform: translateY(100vh) scale(0);
+        transform: translateY(-100px);
         opacity: 0;
       }
       10% {
-        opacity: 0.5;
+        opacity: 1;
       }
       90% {
-        opacity: 0.5;
+        opacity: 1;
       }
       100% {
-        transform: translateY(-100vh) scale(1);
+        transform: translateY(100vh);
         opacity: 0;
       }
     }
@@ -105,27 +115,25 @@
     }
     
     .maintenance-icon {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       margin: 0 auto;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 20px;
+      background: #ffffff;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 40px;
-      box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+      font-size: 36px;
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
     }
     
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 20px;
       font-weight: 700;
+      letter-spacing: -0.5px;
       text-align: center;
-      background: linear-gradient(135deg, #ffffff 0%, #a8b5ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #ffffff;
       animation: slideIn 0.8s ease 0.3s backwards;
     }
     
@@ -141,11 +149,12 @@
     }
     
     p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.8;
-      color: #b8c5d6;
+      color: #a0a0a0;
       text-align: center;
       margin-bottom: 10px;
+      font-weight: 300;
       animation: slideIn 0.8s ease 0.5s backwards;
     }
     
@@ -160,15 +169,15 @@
     
     .btn {
       position: relative;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(10px);
-      padding: 14px 28px;
+      padding: 13px 26px;
       border-radius: 50px;
       text-decoration: none;
       color: #ffffff;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 400;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
@@ -192,10 +201,10 @@
     }
     
     .btn:hover {
-      border-color: rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
     }
     
     .btn svg {
@@ -214,7 +223,7 @@
     .dot {
       width: 8px;
       height: 8px;
-      background: #667eea;
+      background: #ffffff;
       border-radius: 50%;
       animation: bounce 1.4s infinite ease-in-out;
     }
@@ -236,8 +245,9 @@
     footer {
       margin-top: 50px;
       text-align: center;
-      font-size: 0.85rem;
-      color: #6b7280;
+      font-size: 0.8rem;
+      color: #4a4a4a;
+      font-weight: 300;
       animation: slideIn 0.8s ease 0.9s backwards;
     }
     
@@ -279,6 +289,16 @@
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
   </div>
   
   <div class="container">
@@ -288,7 +308,7 @@
     
     <h1>We're Upgrading ByteCast</h1>
     
-    <p>Our platform is currently undergoing scheduled maintenance to bring you an enhanced tech experience.</p>
+    <p>Our platform is currently undergoing scheduled maintenance to bring you an enhanced experience.</p>
     
     <div class="loading-dots">
       <div class="dot"></div>
@@ -296,7 +316,7 @@
       <div class="dot"></div>
     </div>
     
-    <p>Stay connected with real-time tech and AI updates from Africa and the Middle East.</p>
+    <p>Real-time tech and AI updates globally, spotlighting innovations and voices from Africa and MENA.</p>
     
     <div class="socials">
       <a class="btn" href="https://instagram.com/bytecastdaily" target="_blank">
