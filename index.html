@@ -1,94 +1,320 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ByteCast Maintenance</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background: #0d0d0d;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
       color: #ffffff;
-      font-family: "Inter", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
+    
+    /* Floating particles background */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(100, 200, 255, 0.3);
+      border-radius: 50%;
+      animation: float 20s infinite;
+    }
+    
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
+    .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+    .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 22s; }
+    .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 20s; }
+    .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 17s; }
+    .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 19s; }
+    .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 21s; }
+    .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 16s; }
+    .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 23s; }
+    .particle:nth-child(10) { left: 15%; animation-delay: 3.5s; animation-duration: 18s; }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.5;
+      }
+      90% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+      }
+    }
+    
     .container {
-      max-width: 600px;
-      padding: 20px;
-      animation: fadeIn 1.2s ease;
+      max-width: 650px;
+      padding: 40px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      z-index: 1;
+      position: relative;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .logo {
-      width: 90px;
-      margin: 0 auto 20px;
-      opacity: 0.9;
+    
+    .icon-wrapper {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: pulse 3s ease-in-out infinite;
     }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    
+    .maintenance-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+    }
+    
     h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
       font-weight: 700;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff 0%, #a8b5ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideIn 0.8s ease 0.3s backwards;
     }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
     p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #cfcfcf;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #b8c5d6;
+      text-align: center;
+      margin-bottom: 10px;
+      animation: slideIn 0.8s ease 0.5s backwards;
     }
+    
     .socials {
-      margin-top: 30px;
+      margin-top: 40px;
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: slideIn 0.8s ease 0.7s backwards;
     }
+    
     .btn {
-      border: 1px solid #444;
-      padding: 10px 22px;
+      position: relative;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 14px 28px;
       border-radius: 50px;
       text-decoration: none;
       color: #ffffff;
-      font-size: 0.9rem;
-      transition: 0.25s ease;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
     }
+    
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
+    }
+    
     .btn:hover {
-      border-color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
       transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
+    
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 30px 0;
+    }
+    
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #667eea;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out;
+    }
+    
+    .dot:nth-child(1) { animation-delay: -0.32s; }
+    .dot:nth-child(2) { animation-delay: -0.16s; }
+    
+    @keyframes bounce {
+      0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+      }
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
     footer {
-      margin-top: 40px;
-      font-size: 0.75rem;
-      color: #777;
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7280;
+      animation: slideIn 0.8s ease 0.9s backwards;
     }
-      .container { animation: fadeInUp 1s ease forwards; opacity: 0; }
-    @keyframes fadeInUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }.btn { position: relative; overflow: hidden; }
-.btn::after {
-  content: "";
-  position: absolute;
-  top: 0; left: -100%; width: 100%; height: 100%;
-  background: rgba(255,255,255,0.1);
-  transition: 0.4s ease;
-}
-.btn:hover::after { left: 0; }
-
+    
+    @media (max-width: 640px) {
+      .container {
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .socials {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  
   <div class="container">
-    <img src="bytecast-logo.png" alt="ByteCast Logo" class="logo" />
-    <h1>ByteCast is undergoing maintenance</h1>
-    <p>We are upgrading your tech experience. We’ll be back online soon.<br><br>
-    Meanwhile, stay connected with real-time tech and AI updates from Africa and the Middle East.</p><div class="socials">
-  <a class="btn" href="https://instagram.com/bytecastdaily" target="_blank">Instagram</a>
-  <a class="btn" href="https://x.com/bytecastdaily" target="_blank">Twitter / X</a>
-</div>
-
-<footer>ByteCast Network © 2025</footer>
-
+    <div class="icon-wrapper">
+      <div class="maintenance-icon">⚙️</div>
+    </div>
+    
+    <h1>We're Upgrading ByteCast</h1>
+    
+    <p>Our platform is currently undergoing scheduled maintenance to bring you an enhanced tech experience.</p>
+    
+    <div class="loading-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    
+    <p>Stay connected with real-time tech and AI updates from Africa and the Middle East.</p>
+    
+    <div class="socials">
+      <a class="btn" href="https://instagram.com/bytecastdaily" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Instagram
+      </a>
+      
+      <a class="btn" href="https://x.com/bytecastdaily" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        Twitter / X
+      </a>
+    </div>
+    
+    <footer>ByteCast Network © 2025</footer>
   </div>
 </body>
 </html>
