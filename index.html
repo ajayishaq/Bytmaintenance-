@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteCast Maintenance</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+      color: #ffffff;
+      font-family: "Inter", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      padding: 20px;
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .logo {
+      width: 90px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cfcfcf;
+    }
+    .socials {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .btn {
+      border: 1px solid #444;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 0.9rem;
+      transition: 0.25s ease;
+    }
+    .btn:hover {
+      border-color: #fff;
+      transform: translateY(-3px);
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: #777;
+    }
+      .container { animation: fadeInUp 1s ease forwards; opacity: 0; }
+    @keyframes fadeInUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: rgba(255,255,255,0.1);
+  transition: 0.4s ease;
+}
+.btn:hover::after { left: 0; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="bytecast-logo.png" alt="ByteCast Logo" class="logo" />
+    <h1>ByteCast is undergoing maintenance</h1>
+    <p>We are upgrading your tech experience. We’ll be back online soon.<br><br>
+    Meanwhile, stay connected with real-time tech and AI updates from Africa and the Middle East.</p><div class="socials">
+  <a class="btn" href="https://instagram.com/bytecastdaily" target="_blank">Instagram</a>
+  <a class="btn" href="https://x.com/bytecastdaily" target="_blank">Twitter / X</a>
+</div>
+
+<footer>ByteCast Network © 2025</footer>
+
+  </div>
+</body>
+</html>
